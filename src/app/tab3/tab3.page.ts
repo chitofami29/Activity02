@@ -22,8 +22,8 @@ export class Tab3Page implements OnInit{
   ngOnInit() {
 
     this.fetchContact();
-    let bookingRes = this.contService.getContactList();
-    bookingRes.snapshotChanges().subscribe(res => {
+    let contact = this.contService.getContactList();
+    contact.snapshotChanges().subscribe(res => {
       this.contacts = [];
       res.forEach(item => {
         let a = item.payload.toJSON();
