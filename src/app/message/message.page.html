@@ -1,47 +1,38 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title style="font-family: cursive; font-weight: bolder;">Message</ion-title>
+  <ion-toolbar color="primary">
+    <ion-title style="font-family: cursive; font-weight: bolder; text-align: center;">Messages</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <center>
-<ion-card>
-  <ion-card-content>
 
-    <div class="wrap-contact100">
-      <form class="contact100-form validate-form">
-      <span class="contact100-form-title" style="color: aqua; font-family: cursive; font-weight: bolder;">
-      Send A Message
-      </span>
-      <div class="wrap-input100 validate-input" data-validate="Please enter your name">
-      <input class="input100" type="text" name="name" placeholder="Full Name" style="font-family: cursive; font-weight: bolder;">
-      <span class="focus-input100"></span>
-      </div>
-      <div class="wrap-input100 validate-input" data-validate="Please enter your email: e@a.x">
-      <input class="input100" type="text" name="email" placeholder="E-mail" style="font-family: cursive; font-weight: bolder;">
-      <span class="focus-input100"></span>
-      </div>
-      <div class="wrap-input100 validate-input" data-validate="Please enter your phone">
-      <input class="input100" type="text" name="phone" placeholder="Phone" style="font-family: cursive; font-weight: bolder;">
-      <span class="focus-input100"></span>
-      </div>
-      <div class="wrap-input100 validate-input" data-validate="Please enter your message">
-      <textarea class="input100" name="message" placeholder="Your Message" style="font-family: cursive; font-weight: bolder;"></textarea>
-      <span class="focus-input100"></span>
-      </div>
-      <div class="container-contact100-form-btn">
-      <button class="contact100-form-btn">
-      <span style="font-family: cursive; font-weight: bolder;">
-      <i class="fa fa-paper-plane-o m-r-6" aria-hidden="true"></i>
-      Send
-      </span>
-      </button>
-      </div>
-      </form>
-    </div>
+    <ion-list>
+      <ion-item-sliding id="item100" *ngFor="let message of messages">
+      <ion-item>
+      <ion-avatar slot="end" style="border-radius: 3px;">
+        <img src="https://image.shutterstock.com/image-vector/illustration-human-icon-vector-user-260nw-1740961859.jpg" alt="">
+      </ion-avatar>
+      <ion-label style="font-family: cursive;">
+        <h1>{{message.contents}}</h1>
+      </ion-label>
+    </ion-item>
+  </ion-item-sliding>
+    </ion-list>
 
-  </ion-card-content>
-</ion-card>
-</center>
 </ion-content>
+
+<footer>
+  <ion-toolbar color="light">
+    <ion-row class="ion-align-items-center">
+      <ion-col size="9">
+        <ion-textarea class="message-input" placeholder="Aa" [(ngModel)]="contents" style="font-family: cursive;">
+        </ion-textarea>
+      </ion-col>
+      <ion-col size="3">
+        <ion-button fill="clear" color="primary" class="msg-btn" (click)="sendMessage()">
+          <ion-icon name="send" slot="icon-only"></ion-icon>
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-toolbar>
+<footer>
